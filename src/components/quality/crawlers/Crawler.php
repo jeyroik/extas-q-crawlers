@@ -31,7 +31,7 @@ class Crawler extends Item implements ICrawler
         } else {
             $output->writeln([
                 'Missed service crawler class name. ',
-                'Please, define <info>EXTAS_Q_SERVICE_CRAWLER_CLASS</info> env parameter.'
+                'Please, define <info>EXTAS__Q_SERVICE_CRAWLER_CLASS</info> env parameter.'
             ]);
         }
 
