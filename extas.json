@@ -1,0 +1,9 @@
+{
+  "name": "extas/quality-crawlers",
+  "plugins": [
+    {
+      "class": "extas\\components\\plugins\\installers\\InstallerQualityCommandPlugin",
+      "stage": "extas.installer.command"
+    }
+  ]
+}

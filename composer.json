@@ -1,0 +1,12 @@
+{
+  "name": "jeyroik/extas-q-crawlers",
+  "description": "Quality crawler package",
+  "require": {
+    "jeyroik/extas-installer": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "extas\\": "src/"
+    }
+  }
+}
