@@ -1,8 +1,9 @@
 <?php
-namespace extas\interfaces\quality\crawlers;
+namespace extas\components\quality\crawlers;
 
 use extas\components\plugins\Plugin;
 use extas\components\THasDescription;
+use extas\interfaces\quality\crawlers\ICrawler;
 
 /**
  * Class Crawler
