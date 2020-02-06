@@ -1,48 +1,32 @@
 <?php
-namespace extas\components\quality\crawlers;
+namespace extas\interfaces\quality\crawlers;
 
-use extas\components\Item;
-use extas\interfaces\quality\crawlers\ICrawler;
-use Symfony\Component\Console\Output\OutputInterface;
+use extas\components\plugins\Plugin;
+use extas\components\THasDescription;
 
 /**
  * Class Crawler
  *
- * @package extas\components\quality
+ * @package extas\interfaces\quality\crawlers
  * @author jeyroik@gmail.com
  */
-class Crawler extends Item implements ICrawler
+abstract class Crawler extends Plugin implements ICrawler
 {
+    use THasDescription;
+
+    protected $title = '';
+    protected $description = '';
+
     /**
-     * @param OutputInterface $output
+     * Crawler constructor.
      *
-     * @return $this
+     * @param array $config
      */
-    public function crawl(OutputInterface &$output): ICrawler
+    public function __construct(array $config = [])
     {
-        $serviceCrawlerClass = getenv('EXTAS__Q_SERVICE_CRAWLER_CLASS') ?: '';
+        parent::__construct($config);
 
-        if ($serviceCrawlerClass) {
-            /**
-             * @var $serviceCrawler ICrawler
-             */
-            $serviceCrawler = new $serviceCrawlerClass();
-            $serviceCrawler->crawl($output);
-        } else {
-            $output->writeln([
-                'Missed service crawler class name. ',
-                'Please, define <info>EXTAS__Q_SERVICE_CRAWLER_CLASS</info> env parameter.'
-            ]);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    protected function getSubjectForExtension(): string
-    {
-        return static::SUBJECT;
+        $this->setTitle($this->title);
+        $this->setDescription($this->description);
     }
 }

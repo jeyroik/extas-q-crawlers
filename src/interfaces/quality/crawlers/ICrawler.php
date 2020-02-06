@@ -1,23 +1,22 @@
 <?php
 namespace extas\interfaces\quality\crawlers;
 
-use extas\interfaces\IItem;
+use extas\interfaces\IHasDescription;
+use extas\interfaces\plugins\IPlugin;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Interface ICrawler
  *
- * @package extas\interfaces\quality
+ * @package extas\interfaces\quality\crawlers
  * @author jeyroik@gmail.com
  */
-interface ICrawler extends IItem
+interface ICrawler extends IPlugin, IHasDescription
 {
-    const SUBJECT = 'extas.quality.crawler';
-
     /**
      * @param OutputInterface $output
      *
-     * @return ICrawler
+     * @return void
      */
-    public function crawl(OutputInterface &$output): ICrawler;
+    public function __invoke(OutputInterface &$output);
 }
