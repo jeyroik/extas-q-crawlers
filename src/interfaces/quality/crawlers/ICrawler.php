@@ -16,7 +16,7 @@ interface ICrawler extends IPlugin, IHasDescription
     /**
      * @param OutputInterface $output
      *
-     * @return void
+     * @return ICrawler
      */
-    public function __invoke(OutputInterface &$output);
+    public function __invoke(OutputInterface &$output): ICrawler;
 }
