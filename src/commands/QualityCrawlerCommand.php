@@ -1,6 +1,7 @@
 <?php
 namespace extas\commands;
 
+use extas\components\quality\crawlers\CrawlerRunner;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -52,8 +53,7 @@ class QualityCrawlerCommand extends Command
     {
         $start = microtime(true);
 
-        $crawler = new \extas\components\quality\crawlers\Crawler();
-        $crawler->crawl($output);
+        (new CrawlerRunner())->crawl($output);
 
         $end = microtime(true) - $start;
         $output->writeln(['<info>Finished in ' . $end . ' s.</info>']);
