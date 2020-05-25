@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 interface ICrawlerRunner extends IItem
 {
-    const SUBJECT = 'extas.quality.crawler.runner';
+    public const SUBJECT = 'extas.quality.crawler.runner';
 
     /**
      * @param OutputInterface $output

@@ -15,8 +15,8 @@ abstract class Crawler extends Plugin implements ICrawler
 {
     use THasDescription;
 
-    protected $title = '';
-    protected $description = '';
+    protected string $title = '';
+    protected string $description = '';
 
     /**
      * Crawler constructor.
