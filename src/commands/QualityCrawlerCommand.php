@@ -14,7 +14,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 class QualityCrawlerCommand extends DefaultCommand
 {
     protected const VERSION = '0.1.0';
-    protected const DEFAULT__PREFIX = 'PluginInstall';
 
     /**
      * Configure the current command.
