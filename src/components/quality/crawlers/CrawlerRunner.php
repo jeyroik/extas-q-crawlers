@@ -4,6 +4,7 @@ namespace extas\components\quality\crawlers;
 use extas\components\Item;
 use extas\interfaces\quality\crawlers\ICrawler;
 use extas\interfaces\quality\crawlers\ICrawlerRunner;
+use extas\interfaces\stages\IStageQualityCrawl;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -21,7 +22,7 @@ class CrawlerRunner extends Item implements ICrawlerRunner
      */
     public function crawl(OutputInterface &$output): ICrawlerRunner
     {
-        foreach ($this->getPluginsByStage('extas.quality.crawl') as $crawler) {
+        foreach ($this->getPluginsByStage(IStageQualityCrawl::NAME) as $crawler) {
             /**
              * @var $crawler ICrawler
              */
