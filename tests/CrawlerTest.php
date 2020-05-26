@@ -22,15 +22,8 @@ class CrawlerTest extends TestCase
             Crawler::FIELD__TITLE => 'test-title',
             Crawler::FIELD__DESCRIPTION => 'test-description'
         ]) extends Crawler {
-            public function getSelfTitle(): string
-            {
-                return $this->title;
-            }
-
-            public function getSelfDescription(): string
-            {
-                return $this->description;
-            }
+            protected string $title = 'test-title';
+            protected string $description = 'test-description';
 
             public function __invoke(OutputInterface &$output): ICrawler
             {
@@ -38,7 +31,7 @@ class CrawlerTest extends TestCase
             }
         };
 
-        $this->assertEquals('test-title', $crawler->getSelfTitle());
-        $this->assertEquals('test-description', $crawler->getSelfDescription());
+        $this->assertEquals('test-title', $crawler->getTitle());
+        $this->assertEquals('test-description', $crawler->getDescription());
     }
 }

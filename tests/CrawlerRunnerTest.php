@@ -24,9 +24,7 @@ class CrawlerRunnerTest extends TestCase
 
     protected function tearDown(): void
     {
-        $this->pluginRepo->delete([
-
-        ]);
+        $this->pluginRepo->delete([Plugin::FIELD__CLASS => CrawlerNothing::class]);
     }
 
     public function testCrawl()
